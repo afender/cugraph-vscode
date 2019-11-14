@@ -2,7 +2,7 @@
 Visual Studio Code configuration files for developing [RAPIDS.ai/cuGraph](https://github.com/rapidsai/cugraph)
 
 ## Installation
-  1. Copy (or merge) the the contents of the .vscode directory into your cugraph/.vscode directory.
+  1. Copy (or merge) the the contents of the `.vscode` directory into your `cugraph/.vscode` directory.
   2. Update `tasks.json` with your local path to conda `activate`
   
 ## Included
@@ -10,4 +10,4 @@ Visual Studio Code configuration files for developing [RAPIDS.ai/cuGraph](https:
  
 ## To do
   - improve IntelliSense setup
-  - debug config
+  - debug configuration
