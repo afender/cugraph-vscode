@@ -1,0 +1,71 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "command": "sh",
+    "args": ["-c"],
+    "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+    },
+    "tasks": [
+        {
+            "label": "cmake",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/cpp/build"
+            },
+            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; cmake .. -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX"
+        },
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; make -j; make install",
+            "options": {
+                "cwd": "${workspaceRoot}/cpp/build"
+            },
+            "dependsOn": [
+                "cmake"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "cython",
+            "type": "shell",
+            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; python setup.py build_ext --inplace; python setup.py install",
+            "dependsOn": [
+                "make"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/python"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "gtests",
+            "type": "shell",
+            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; make test",
+            "options": {
+                "cwd": "${workspaceRoot}/cpp/build"
+            },
+            "group": "test"
+        },
+        {
+            "label": "pytests",
+            "type": "shell",
+            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; pytest",
+            "options": {
+                "cwd": "${workspaceRoot}/python"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}
