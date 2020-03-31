@@ -15,9 +15,14 @@
             "label": "cmake",
             "type": "shell",
             "options": {
+                "env": {
+                    "LD_LIBRARY_PATH": "${env:LD_LIBRARY_PATH}:/usr/local/cuda/lib64",
+                    "PATH": "${env:PATH}:/usr/local/cuda/bin"
+                },
                 "cwd": "${workspaceRoot}/cpp/build"
             },
-            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; cmake .. -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX"
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; cmake .. -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX",
+            "group": "build"
         },
         {
             "label": "make",
