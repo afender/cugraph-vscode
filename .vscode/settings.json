@@ -1,0 +1,8 @@
+{
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "editor.formatOnSave": true,
+    "python.pythonPath": "/home/afender/miniconda3/envs/cugraph_dev/bin/python",
+    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+}
