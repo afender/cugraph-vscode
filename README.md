@@ -13,12 +13,15 @@ Visual Studio Code configuration files for developing [RAPIDS.ai/cuGraph](https:
   3. `mkdir cpp/build`
   4. Try Command+Shift+B
   
+## clangd
+  - Install clangd on the machine (`sudo apt-get install clangd-9` for Ubuntu) and vscode plugin `llvm-vs-code-extensions.vscode-clangd`. 
+  - set `“clangd.path”` to the correct path in `cugraph.code-workspace`.
+  
 ## Useful packadges
 
 Code
 - llvm-vs-code-extensions.vscode-clangd
 - ms-python.python
-- ms-vscode.cpptools
 - kriegalex.vscode-cudacpp
 - ms-vscode.cmake-tools
 - tcwalther.cython
