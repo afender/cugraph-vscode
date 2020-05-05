@@ -13,6 +13,23 @@ Visual Studio Code configuration files for developing [RAPIDS.ai/cuGraph](https:
   3. `mkdir cpp/build`
   4. Try Command+Shift+B
   
+## Useful packadges
+
+Code
+- llvm-vs-code-extensions.vscode-clangd
+- ms-python.python
+- ms-vscode.cpptools
+- kriegalex.vscode-cudacpp
+- ms-vscode.cmake-tools
+- tcwalther.cython
+
+Remote work
+- ms-vscode-remote.remote-ssh
+- ms-vscode-remote.remote-ssh-edit
+
+Other
+- streetsidesoftware.code-spell-checker
+- github.vscode-pull-request-github
+
 ## To do
-  - improve IntelliSense setup
   - debug configuration
