@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/cpp/**",
+                "/usr/local/cuda/include/**",
+                "${env:HOME}/miniconda3/envs/cugraph_dev/include/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
