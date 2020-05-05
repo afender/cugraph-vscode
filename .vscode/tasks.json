@@ -15,14 +15,19 @@
             "label": "cmake",
             "type": "shell",
             "options": {
+                "env": {
+                    "LD_LIBRARY_PATH": "${env:LD_LIBRARY_PATH}:/usr/local/cuda/lib64",
+                    "PATH": "${env:PATH}:/usr/local/cuda/bin"
+                },
                 "cwd": "${workspaceRoot}/cpp/build"
             },
-            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; cmake .. -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX"
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; cmake .. -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX",
+            "group": "build"
         },
         {
             "label": "make",
             "type": "shell",
-            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; make -j; make install",
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; make -j; make install",
             "options": {
                 "cwd": "${workspaceRoot}/cpp/build"
             },
@@ -34,12 +39,16 @@
         {
             "label": "cython",
             "type": "shell",
-            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; python setup.py build_ext --inplace; python setup.py install",
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; python setup.py build_ext --inplace; python setup.py install",
             "dependsOn": [
                 "make"
             ],
             "options": {
-                "cwd": "${workspaceRoot}/python"
+                "cwd": "${workspaceRoot}/python",
+                "env": {
+                    "LD_LIBRARY_PATH": "${env:LD_LIBRARY_PATH}:/usr/local/cuda/lib64",
+                    "PATH": "${env:PATH}:/usr/local/cuda/bin"
+                }
             },
             "group": {
                 "kind": "build",
@@ -49,7 +58,7 @@
         {
             "label": "gtests",
             "type": "shell",
-            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; make test",
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; make test",
             "options": {
                 "cwd": "${workspaceRoot}/cpp/build"
             },
@@ -58,7 +67,7 @@
         {
             "label": "pytests",
             "type": "shell",
-            "command": "source /home/afender/miniconda3/bin/activate; conda activate cugraph_dev; pytest",
+            "command": "source ${env:HOME}/miniconda3/bin/activate; conda activate cugraph_dev; pytest",
             "options": {
                 "cwd": "${workspaceRoot}/python"
             },
