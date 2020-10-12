@@ -17,11 +17,11 @@ Visual Studio Code configuration files for developing [RAPIDS.ai/cuGraph](https:
   - Install clangd on the machine (`sudo apt-get install clangd-9` for Ubuntu) and vscode plugin `llvm-vs-code-extensions.vscode-clangd`. 
   - set `“clangd.path”` to the correct path in `cugraph.code-workspace`.
 
-## Auto Python format wth Black
+## Auto Python format with Black
 - `pip install black`
 - In VSCode:
-  - `Ctrl+Comma`
-  - make sure `Python › Formatting: Black Path` is set to the correct location
+  - `Ctrl+Comma` search for `Python Formatting Black` 
+  - make sure `Python › Formatting: Black Path` is set to the correct location and review options
 
 ## Useful packadges
 
